@@ -1,7 +1,9 @@
 {
+  "name": "quiet-tuesday",
+  "source": "src/index.html",
   "scripts": {
-    "watch": "parcel watch",
-    "build": "parcel build"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --dist-dir docs --public-url ./"
   },
   "devDependencies": {
     "parcel": "^2.13.3",
