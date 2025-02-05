@@ -27,28 +27,49 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get all videos
     const videos = document.querySelectorAll('video');
     
-    // Create an Intersection Observer
+    // Create an Intersection Observer with more generous threshold
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             // When video comes into view
             if (entry.isIntersecting) {
                 const video = entry.target;
-                // Try to play the video
-                video.play().catch(function(error) {
-                    console.log("Video play failed", error);
-                });
+                // Add a small delay before attempting to play
+                setTimeout(() => {
+                    // Try to play the video
+                    video.play().catch(function(error) {
+                        console.log("Video play failed", error);
+                        // Retry once on failure
+                        setTimeout(() => {
+                            video.play().catch(function(retryError) {
+                                console.log("Retry failed", retryError);
+                            });
+                        }, 1000);
+                    });
+                }, 100);
+                
                 // Stop observing this video
                 observer.unobserve(video);
             }
         });
     }, {
-        threshold: 0.1 // Start loading when 10% of the video is visible
+        rootMargin: '50px 0px', // Start loading before the video enters viewport
+        threshold: 0.05 // Trigger when just 5% of the video is visible
     });
 
     // Observe all videos except the first one
     videos.forEach((video, index) => {
         if (index !== 0) { // Skip the first video
             observer.observe(video);
+            
+            // Add load event listener
+            video.addEventListener('loadeddata', () => {
+                console.log(`Video ${index} loaded successfully`);
+            });
+            
+            // Add error handling
+            video.addEventListener('error', (e) => {
+                console.log(`Error loading video ${index}:`, e);
+            });
         }
     });
 });
