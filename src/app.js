@@ -22,3 +22,33 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf)
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all videos
+    const videos = document.querySelectorAll('video');
+    
+    // Create an Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // When video comes into view
+            if (entry.isIntersecting) {
+                const video = entry.target;
+                // Try to play the video
+                video.play().catch(function(error) {
+                    console.log("Video play failed", error);
+                });
+                // Stop observing this video
+                observer.unobserve(video);
+            }
+        });
+    }, {
+        threshold: 0.1 // Start loading when 10% of the video is visible
+    });
+
+    // Observe all videos except the first one
+    videos.forEach((video, index) => {
+        if (index !== 0) { // Skip the first video
+            observer.observe(video);
+        }
+    });
+});
