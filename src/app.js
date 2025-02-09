@@ -7,12 +7,17 @@ const lenis = new Lenis({
     wrapper: document.querySelector('.right-homepage'),
     content: document.querySelector('.right-homepage'),
     duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // default easing
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     smoothWheel: true,
     wheelMultiplier: 1,
     touchMultiplier: 1,
     smooth: true,
+    smoothTouch: false,
+    infinite: false,
+    gestureOrientation: 'vertical',
+    normalizeWheel: true,
+    touchInertiaMultiplier: 35,
 })
 
 // RAF loop for Lenis
@@ -72,4 +77,15 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+
+    // Optional: Add this to handle iframe focus
+    document.querySelectorAll('.vimeo-container iframe').forEach(iframe => {
+        iframe.addEventListener('mouseenter', () => {
+            lenis.stop()
+        })
+        
+        iframe.addEventListener('mouseleave', () => {
+            lenis.start()
+        })
+    })
 });
