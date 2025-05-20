@@ -4,6 +4,9 @@ body {
   font-family: 'Arial', sans-serif;
   letter-spacing: -0.3px;
 }
+::-webkit-scrollbar {
+    display:none;
+}
 
 h1{
     font-size: 42px;
@@ -244,6 +247,78 @@ hr {
     display: block;
     padding-top: 62.67%; /* Maintains aspect ratio 16:10 */
 }
+
+.splash-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .closed-text {
+    position: relative;
+    cursor: pointer;
+    margin-top: 20px;
+    border: 1px solid #bfffd1;
+    padding: 10px 20px;
+    display: inline-block;  /* This helps with the border sizing */
+  }
+  
+  .splash-container .logo {
+    max-width: 80%;
+    height: auto;
+    width: 300px; /* base size for larger screens */
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 768px) {
+    .splash-container .logo {
+      width: 200px; /* smaller size for tablets */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .splash-container .logo {
+      width: 150px; /* even smaller for mobile */
+    }
+  }
+
+  /* Create the emoji elements */
+  .closed-text::before,
+  .closed-text::after {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.5s ease;
+    pointer-events: none;
+    font-size: 24px;
+  }
+
+  .closed-text::before {
+    content: '🏖️';
+    left: -40px;
+    top: 0;
+  }
+
+  .closed-text::after {
+    content: '🌴';
+    right: -40px;
+    top: 0;
+  }
+
+  /* Hover effect */
+  .closed-text:hover::before {
+    opacity: 1;
+    transform: translateX(-20px) translateY(-20px);
+  }
+
+  .closed-text:hover::after {
+    opacity: 1;
+    transform: translateX(20px) translateY(-20px);
+  }
 
 @media screen and (max-width: 768px) {
     .website-container {
