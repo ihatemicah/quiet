@@ -37,6 +37,9 @@ jobs:
           node-version: '22'
           cache: npm
       - name: Install and build
+        env:
+          # Ensures vite.config.js picks base: /<repo>/ for project pages (not /assets/... 404s).
+          GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           npm ci
           npm run build

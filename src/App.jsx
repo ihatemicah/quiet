@@ -1,4 +1,5 @@
 import './App.css'
+import qtLogo from './assets/qt-logo.svg'
 import WorkSamples from './WorkSamples'
 import ValueState from './ValueState'
 import AboutUs from './AboutUs'
@@ -71,7 +72,7 @@ function App() {
 
       <div className='page-container'>
         <div className='header-section'>
-          <img src="/src/assets/qt-logo.svg" alt="" /> 
+          <img src={qtLogo} alt="" />
           <div> work@quiettuesday.com</div> 
         </div> 
         <div className='section-border'>

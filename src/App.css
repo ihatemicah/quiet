@@ -15,7 +15,7 @@ body {
   align-items: flex-start; /* Keeps it at the top so it can scroll down */
   padding: 24px 24px;     /* The 'frame' around your card */
   box-sizing: border-box;
-  background-image: url('/src/assets/images/background.jpg'); /* Add your image path here */
+  background-image: url('./assets/images/background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
