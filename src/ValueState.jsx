@@ -1,4 +1,5 @@
 import './App.css'
+import exclamationIcon from './assets/exclamation-icn.svg'
 
 function ValueState() {
   return (
@@ -16,7 +17,7 @@ function ValueState() {
         <div className='value-cta-section'>
           <div className='cta-section-1'>
             <div className='cta-title'>
-              <img src="/src/assets/exclamation-icn.svg" alt="" />
+              <img src={exclamationIcon} alt="" />
               <p> Challenges you face</p>
             </div>
           </div>
