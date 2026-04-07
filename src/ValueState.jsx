@@ -7,11 +7,10 @@ function ValueState() {
       <div className='value-container'>
         <div className='value-intro'>
             <div className='value-pitch'>
-                <p> Your in-house creative team, without the headcount</p>
+                <p> Your in-house creative team, minus the headcount</p>
             </div>
             <div className='value-pitch-2'>  
-                <p> From brand identity and motion to 3D and content strategy, we operate like in-house collaborators.
-                One monthly cadence. One point of contact. Every medium.</p>
+                <p> We operate like full-time collaborators, bridging the gap between brand, product, and marketing— making your vision consistent within every channel. One point of contact for every medium.</p>
             </div>
         </div>
         <div className='value-cta-section'>

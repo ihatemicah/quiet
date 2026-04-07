@@ -19,11 +19,7 @@ function AboutUs() {
                 About us
             </h3>
             <p>
-            Were a creative pair dedicated to making your
-            brand feel clear, intentional, and expressive.
-            We work closely with you-almost like in-
-            house to shape design, motion, and 3D into
-            one coherent visual language.
+            Micah and Janjira are a creative duo based in Seattle, WA. They’ve worked with a series of teams to create clear, intentional, and expressive brands— shaping design, content strategies, and user experiences.
             </p>
         </div>
         <div className='about-companies'>
